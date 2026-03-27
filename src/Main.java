@@ -18,7 +18,17 @@ public class Main {
         productList.add(macbook);
         productList.add(airpods);
 
+        // CommerceSystem 객체화
         CommerceSystem commerceSystem = new CommerceSystem(productList, scanner);
+
+        // Category 객체화
+        Category electronicsList = new Category(productList, "전자제품");
+        Category clothesList = new Category(productList, "의류");
+        Category foodList = new Category(productList, "식품");
+
+
+
+        // 프로그램 시작
         commerceSystem.start();
     }
 

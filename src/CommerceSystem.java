@@ -10,12 +10,14 @@ public class CommerceSystem {
 
 
     // 생성자
-    public CommerceSystem (List<Product> productList, Scanner scanner) {
+    public CommerceSystem(List<Product> productList, Scanner scanner) {
         this.productList = productList;
         this.scanner = scanner;
     }
 
     // 기능
+
+    // 입출력 메서드
     public void start() {
         // 반복문으로 ProductList 출력
         while (true) {
@@ -39,7 +41,6 @@ public class CommerceSystem {
 
         }
     }
-
 
 
 }
