@@ -14,10 +14,12 @@ public class Main {
 
         // 전자제품 리스트
         // List.of 사용 : 괄호 안의 값들로 리스트 만들기
-        List<Product> electronicsList = new ArrayList<>(List.of(galaxy, iphone, macbook, airpods));
+        List<Product> productList = new ArrayList<>(List.of(galaxy, iphone, macbook, airpods));
 
-        CommerceSystem commerceSystem = new CommerceSystem(electronicsList);
+        // 프로그램 시작
+        CommerceSystem commerceSystem = new CommerceSystem(productList);
         commerceSystem.start();
+
 
     }
 

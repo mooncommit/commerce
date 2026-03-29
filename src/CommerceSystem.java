@@ -2,24 +2,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CommerceSystem {
-//    Product를 관리하는 리스트가 필드로 존재
-    // 리스트 필요
     Scanner scanner = new Scanner(System.in);
 
     // 속성
-    private List<Product> electronicsList;
+    // 리스트
+    private List<Product> productList;
 
     // 생성자
-    public CommerceSystem(List<Product> electronicsList) {
-        this.electronicsList = electronicsList;
+    public CommerceSystem (List<Product> productList) {
+        this.productList = productList;
     }
 
     // 기능
-    public void start() {
+    public void start () {
         while (true) {
             int count = 1;
             System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
-            for (Product product : electronicsList) {
+            for (Product product : productList) {
                 System.out.println(String.format("%d. %s | %,d원 | %s", count, product.getName(), product.getPrice(), product.getExplain()));
                 count ++;
             }
