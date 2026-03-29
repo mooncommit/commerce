@@ -1,46 +1,36 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CommerceSystem {
+//    Product를 관리하는 리스트가 필드로 존재
+    // 리스트 필요
+    Scanner scanner = new Scanner(System.in);
 
     // 속성
-    private List<Product> productList;
-    private Scanner scanner;
-
+    private List<Product> electronicsList;
 
     // 생성자
-    public CommerceSystem(List<Product> productList, Scanner scanner) {
-        this.productList = productList;
-        this.scanner = scanner;
+    public CommerceSystem(List<Product> electronicsList) {
+        this.electronicsList = electronicsList;
     }
 
     // 기능
-
-    // 입출력 메서드
     public void start() {
-        // 반복문으로 ProductList 출력
         while (true) {
-            int number = 0;
-            System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ] ");
-            for (Product products : productList) {
-                number++;
-//                System.out.println(number + ". " + products.getName() + "  |  " + products.getPrice() + "  |  " + products.getExplain());
-                // String.format("형식", 값) 활용
-                System.out.println(String.format("%d. %s | %,d원 | %s", number, products.getName(), products.getPrice(), products.getExplain()));
+            int count = 1;
+            System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
+            for (Product product : electronicsList) {
+                System.out.println(String.format("%d. %s | %,d원 | %s", count, product.getName(), product.getPrice(), product.getExplain()));
+                count ++;
             }
-            System.out.println("0. 종료          | 프로그램 종료");
-            System.out.println("--------------------------------");
+            System.out.println("0. 종료        | 프로그램 종료");
             System.out.print("입력 : ");
             int exit = scanner.nextInt();
             if (exit == 0) {
                 System.out.println("커머스 플랫폼을 종료합니다.");
-
                 break;
             }
 
         }
     }
-
-
 }

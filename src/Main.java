@@ -16,24 +16,8 @@ public class Main {
         // List.of 사용 : 괄호 안의 값들로 리스트 만들기
         List<Product> electronicsList = new ArrayList<>(List.of(galaxy, iphone, macbook, airpods));
 
-        // 반복문 활용
-        while (true) {
-            int count = 1;
-            System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
-            for (Product product : electronicsList) {
-                System.out.println(String.format("%d. %s | %,d원 | %s", count, product.getName(), product.getPrice(), product.getExplain()));
-                count ++;
-            }
-            System.out.println("0. 종료        | 프로그램 종료");
-            System.out.print("입력 : ");
-            int exit = scanner.nextInt();
-            if (exit == 0) {
-                System.out.println("커머스 플랫폼을 종료합니다.");
-                break;
-            }
-
-        }
-
+        CommerceSystem commerceSystem = new CommerceSystem(electronicsList);
+        commerceSystem.start();
 
     }
 
