@@ -8,102 +8,64 @@ public class CommerceSystem {
     private List<Category> categoryList;
 
     // 생성자
-    public CommerceSystem (List<Category> categoryList) {
+    public CommerceSystem(List<Category> categoryList) {
         this.categoryList = categoryList;
     }
 
     // 기능
+    // 프로그램 시작 기능
     public void start() {
         while (true) {
-            // 카테고리 고르기(메인)
+
+            // 메인
             System.out.println("[ 실시간 커머스 플랫폼 메인 ]");
             int categoryCount = 1;
-            for (Category category : categoryList ) {
-                System.out.println(String.format("%d. %s", categoryCount, category.getCategoryName()));
-                categoryCount ++;
+            for (Category category : categoryList) {
+                System.out.println(categoryCount + ". " + category.getCategoryName());
+                categoryCount++;
             }
-            // 카테고리 0을 골랐을 때
+            // 카테고리 선택
             System.out.println("0. 종료      | 프로그램 종료");
             System.out.print("입력 : ");
             int categoryNumber = scanner.nextInt();
+
+            // 0이면 프로그램 종료
             if (categoryNumber == 0) {
                 System.out.println("커머스 플랫폼을 종료합니다.");
                 break;
+            // 아니면
+            } else {
+                // 변수가 갖는 데이터 타입 Category
+                // selectCategory : 변수명
+                // categoryList.get(categoryNumber -1); : categoryNumber에 -1, 값에 따른 리스트를 selectCategory 변수에 값을 할당
+                Category selectCategory = categoryList.get(categoryNumber -1);
 
-                // 1 입력 - 전자제품 카테고리
-            } else if (categoryNumber == 1) {
-                List<Product> productList = categoryList.get(0).getProductList(); // productList 0번 전자제품 담기 위해 선언
-                System.out.println("[ 전자제품 카테고리 ]");
+                // List<Product>: 변수가 갖는 데이터 타입
+                // productList : 변수명
+                // selectCategory.getProductList(); 위에 꺼낸 객체를 productList에 넣어준다
+                List<Product> productList = selectCategory.getProductList();
+
+                // 전자제품 카테고리 List 출력
+                System.out.println("[ " + selectCategory.getCategoryName() + "전자제품 카테고리 ]");
                 int productCount = 1;
                 for (Product product : productList) {
-                    System.out.println(String.format("%d. %s | %,d원 | %s",
-                            productCount, product.getProductName(), product.getProductPrice(), product.getProductExplain()));
-                    productCount ++;
-                }
-                System.out.println("0. 뒤로가기");
-                System.out.print("입력 : ");
-                int productNumber = scanner.nextInt();
-
-                // 전자제품 상품 번호 고르기
-                if (productNumber == 1) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(0).getProductName(), productList.get(0).getProductPrice(), productList.get(0).getProductExplain(),
-                            productList.get(0).getProductPice()));
-                    break;
-                } else if (productNumber == 2) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(1).getProductName(), productList.get(1).getProductPrice(), productList.get(1).getProductExplain(),
-                            productList.get(1).getProductPice()));
-                    break;
-                } else if (productNumber == 3) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(2).getProductName(), productList.get(2).getProductPrice(), productList.get(2).getProductExplain(),
-                            productList.get(2).getProductPice()));
-                    break;
-                } else if (productNumber == 4) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(3).getProductName(), productList.get(3).getProductPrice(), productList.get(3).getProductExplain(),
-                            productList.get(3).getProductPice()));
-                    break;
-                }
-
-                // 카테고리 2번 의류를 골랐을 때
-            } else if (categoryNumber == 2) {
-                System.out.println("[ 의류 카테고리 ]");
-                List<Product> productList = categoryList.get(1).getProductList(); // productList 2번 의류 담기 위해 선언
-                int productCount = 1;
-                for (Product product : productList) {
-                    System.out.println(String.format("%d. %s | %,d원 | %s",
+                    System.out.println(String.format("%d. %s | %,d | %s",
                             productCount, product.getProductName(), product.getProductPrice(), product.getProductExplain()));
                     productCount++;
                 }
+
                 System.out.println("0. 뒤로가기");
                 System.out.print("입력 : ");
-                int clothesProductNumber = scanner.nextInt();
+                int productNumber = scanner.nextInt();
+                if (productNumber == 0) {
+//                    continue; 여기 튜터님께 물어보기!!
+                } else {
+                    Product product = productList.get(productNumber - 1);
 
-                // 전자제품 상품 번호 고르기
-                if (clothesProductNumber == 1) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(0).getProductName(), productList.get(0).getProductPrice(), productList.get(0).getProductExplain(),
-                            productList.get(0).getProductPice()));
-                    break;
-                } else if (clothesProductNumber == 2) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(1).getProductName(), productList.get(1).getProductPrice(), productList.get(1).getProductExplain(),
-                            productList.get(1).getProductPice()));
-                    break;
-                } else if (clothesProductNumber == 3) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(2).getProductName(), productList.get(2).getProductPrice(), productList.get(2).getProductExplain(),
-                            productList.get(2).getProductPice()));
-                    break;
-                } else if (clothesProductNumber == 4) {
-                    System.out.println(String.format("선택한 상품 : %s | %,d원 | %s | 재고 : %d개",
-                            productList.get(3).getProductName(), productList.get(3).getProductPrice(), productList.get(3).getProductExplain(),
-                            productList.get(3).getProductPice()));
-                    break;
+                    System.out.println(String.format("선택한 상품 : %s | %,d | %s | 재고 : %,d개",
+                            product.getProductName(), product.getProductPrice(),
+                            product.getProductExplain(), product.getProductQuantity()));
                 }
-//                break;
             }
         }
     }
