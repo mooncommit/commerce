@@ -4,14 +4,14 @@ public class Product {
     private String productName;
     private int productPrice;
     private String productExplain;
-    private int productPice;
+    private int productQuantity;
 
     // 생성자
-    public Product(String productName, int productPrice, String productExplain, int productPice) {
+    public Product(String productName, int productPrice, String productExplain, int productQuantity) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productExplain = productExplain;
-        this.productPice = productPice;
+        this.productQuantity = productQuantity;
     }
 
     // 기능
@@ -28,7 +28,7 @@ public class Product {
         return productExplain;
     }
 
-    public int getProductPice() {
-        return productPice;
+    public int getProductQuantity() {
+        return productQuantity;
     }
 }

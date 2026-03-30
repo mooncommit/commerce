@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         // 전자제품 객체
         Product galaxy = new Product("Galaxy S25", 1200000, "최신 안드로이드 스마트폰", 0);
@@ -30,7 +32,7 @@ public class Main {
         List<Category> categoryList = new ArrayList<>(List.of(electronicsCategory, clothesCategory));
 
         // CommerceSystem 객체
-        CommerceSystem commerceSystem = new CommerceSystem(categoryList);
+        CommerceSystem commerceSystem = new CommerceSystem(categoryList, scanner);
 
         // 프로그램 시작
         commerceSystem.start();
