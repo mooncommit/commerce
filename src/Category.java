@@ -1,28 +1,24 @@
 import java.util.List;
 
 public class Category {
-    // 전자제품, 의류, 식품 등 각 카테고리 내에 여러 `Product`를 만들어 줍니다.
-    // 이 클래스가 필요한 데이터는 일단 상품 리스트와 그리고 카테고리 이름이 필요하다
-
+    // productList, 카테고리 이믈
     // 속성
-    private List<Product> productList;
     private String categoryName;
+    private List<Product> productList;
 
     // 생성자
-    public Category (List<Product> productList, String categoryName) {
-        this.productList = productList;
+    public Category (String categoryName, List<Product> productList) {
         this.categoryName = categoryName;
+        this.productList = productList;
     }
 
     // 기능
 
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    // 카테고리 이름 메서드
-    public String getName() {
+    public String getCategoryName() {
         return categoryName;
     }
 
+    public List<Product> getProductList() {
+        return productList;
+    }
 }

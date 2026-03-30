@@ -1,32 +1,34 @@
 public class Product {
-//    상품명, 가격, 설명, 재고수량 필드
+    // 상품명, 가격, 설명, 재고수량
+    // 속성
+    private String productName;
+    private int productPrice;
+    private String productExplain;
+    private int productPice;
 
-    private String name;
-    private int price;
-    private String explain;
-    private int pics;
-
-    public Product (String name, int price, String explain, int pics) {
-        this.name = name;
-        this.price = price;
-        this.explain = explain;
-        this.pics = pics;
+    // 생성자
+    public Product(String productName, int productPrice, String productExplain, int productPice) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productExplain = productExplain;
+        this.productPice = productPice;
     }
 
-    public String  getName() {
-        return name;
+    // 기능
+
+    public String getProductName() {
+        return productName;
     }
 
-    public int getPrice() {
-        return  price;
-    }
-    public String getExplain() {
-        return explain;
+    public int getProductPrice() {
+        return productPrice;
     }
 
-    public int getPics() {
-        return pics;
+    public String getProductExplain() {
+        return productExplain;
     }
 
-
+    public int getProductPice() {
+        return productPice;
+    }
 }
