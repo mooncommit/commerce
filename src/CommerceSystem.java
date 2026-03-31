@@ -38,7 +38,7 @@ public class CommerceSystem {
             if (inputCategory == 0) {
                 System.out.println("커머스 플랫폼을 종료합니다.");
                 break;
-            } else if (0 < inputCategory && inputCategory < categoryList.size()) {
+            } else if (0 < inputCategory && inputCategory <= categoryList.size()) {
                 selectedCategory = categoryList.get(inputCategory - 1);
             } else {
                 System.out.println("올바른 숫자를 입력해주세요");
@@ -51,6 +51,7 @@ public class CommerceSystem {
             for (Product product : productList) {
                 System.out.println(String.format("%d. %s | %,d | %s",
                         productCount, product.getProductName(), product.getProductPrice(), product.getProductExplain()));
+                productCount++;
             }
 
             // 5. 입력값 받기
@@ -59,15 +60,22 @@ public class CommerceSystem {
             int inputProduct = scanner.nextInt();
 
             // 6. 상품 선택
+            // 예외처리 먼저 하기 (0(종료),1(상품목록 선택),2(상품목록 선택), 3(상품목록 선택) 4(다시 입력))
             if (inputProduct == 0) {
                 continue;
-            } else if (inputProduct >= 0 && productList.size() >= inputProduct) {
+            } else if (0 < inputProduct && inputProduct <= productList.size()) {
                 selectedProduct = productList.get(inputProduct - 1);
-                System.out.println(String.format("선택한 상품 : %s | %,d | %s | 재고 : %,d개",
-                        selectedProduct.getProductName(), selectedProduct.getProductPrice(),
-                        selectedProduct.getProductExplain(), selectedProduct.getProductQuantity()));
+            } else {
+                System.out.println("올바른 숫자를 입력해주세요");
+                continue;
             }
+
+            // 7. 상품 출력
+            System.out.println(String.format("선택한 상품 : %s | %,d | %s | 재고 : %,d개",
+                    selectedProduct.getProductName(), selectedProduct.getProductPrice(),
+                    selectedProduct.getProductExplain(), selectedProduct.getProductQuantity()));
         }
     }
 }
 // 분리를 어떤 기준으로 분리할 수 있을까 계획하기!
+// 카테고리 / 상품목록
