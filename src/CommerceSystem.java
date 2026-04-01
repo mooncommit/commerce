@@ -10,6 +10,7 @@ public class CommerceSystem {
     private Scanner scanner;
     private Category selectedCategory;
     private Product selectedProduct;
+    // 장바구니
 
     // 생성자
     public CommerceSystem(List<Category> categoryList, Scanner scanner) {
@@ -119,11 +120,7 @@ public class CommerceSystem {
             int inputProduct = returnProductNumber();
 
             // selectProduct
-            // 걷기 1회차에서...
-            // 인수!!
-            // 매개변수
             // 6. 상품 선택
-            // 예외처리 먼저 하기 (0(종료),1(상품목록 선택),2(상품목록 선택), 3(상품목록 선택) 4(다시 입력))
             String signalProduct = selectProduct(inputProduct);
             if (signalProduct.equals("break")) {
                 break;
@@ -134,6 +131,7 @@ public class CommerceSystem {
             // displayProduct
             // 7. 상품 출력
             displayProduct();
+
         }
     }
 }
