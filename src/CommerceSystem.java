@@ -21,6 +21,7 @@ public class CommerceSystem {
     // 프로그램 시작 기능
     public void start() {
         while (true) {
+            // displayCategoryList
             // 1. 카테고리 목록 출력
             System.out.println("[ 실시간 커머스 플랫폼 메인 ]");
             int categoryCount = 1;
@@ -28,11 +29,13 @@ public class CommerceSystem {
                 System.out.println(categoryCount + ". " + category.getCategoryName());
                 categoryCount++;
             }
+            // returnCategoryNumber
             // 2. 입력값 받기
             System.out.println("0. 종료      | 프로그램 종료");
             System.out.print("입력 : ");
             int inputCategory = scanner.nextInt();
 
+            // selectCategory
             // 3. 카테고리 선택
             // 예외처리 먼저 하기 (0(종료),1(카테고리 선택),2(카테고리 선택), 3(다시 입력))
             if (inputCategory == 0) {
@@ -45,6 +48,7 @@ public class CommerceSystem {
                 continue;
             }
 
+            // displayProductList
             // 4. 상품목록 출력
             List<Product> productList = selectedCategory.getProductList();
             int productCount = 1;
@@ -54,11 +58,13 @@ public class CommerceSystem {
                 productCount++;
             }
 
+            // returnProductNumber
             // 5. 입력값 받기
             System.out.println("0. 뒤로가기");
             System.out.print("입력 : ");
             int inputProduct = scanner.nextInt();
 
+            // selectProduct
             // 6. 상품 선택
             // 예외처리 먼저 하기 (0(종료),1(상품목록 선택),2(상품목록 선택), 3(상품목록 선택) 4(다시 입력))
             if (inputProduct == 0) {
@@ -70,6 +76,7 @@ public class CommerceSystem {
                 continue;
             }
 
+            // displayProduct
             // 7. 상품 출력
             System.out.println(String.format("선택한 상품 : %s | %,d | %s | 재고 : %,d개",
                     selectedProduct.getProductName(), selectedProduct.getProductPrice(),
@@ -78,4 +85,5 @@ public class CommerceSystem {
     }
 }
 // 분리를 어떤 기준으로 분리할 수 있을까 계획하기!
+//
 // 카테고리 / 상품목록
