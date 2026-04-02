@@ -13,7 +13,7 @@ public class CommerceSystem {
     private Product selectedProduct;
 
     // 장바구니
-    private HashMap<Product, Integer> cart;
+    private HashMap<Product, Integer> cart = new HashMap<>();
 
 
     // 생성자
@@ -137,18 +137,22 @@ public class CommerceSystem {
             displayProduct();
 
             // 장바구니
+            // 입력값 받기
             System.out.println("위 상품을 장바구니에 추가하시겠습니까?");
             System.out.println("1. 확인        2. 취소");
 
-            // 8. 장바구니에 넣을 건지 선택
+            // 8. 장바구니에 추가할지 선택
             System.out.print("입력 : ");
             int addCart = scanner.nextInt();
             // 1 선택 : 추가 / 2 선택 : 취소 continue; 그 외 : 올바른 숫자를 입력하세요
             // 1이면 추가
             if (addCart == 1) {
                 // 여기서 이미 있으면 + 1 담아주기(put 메서드)
+                System.out.println("------------------------------1");
                 if (cart.containsKey(selectedProduct)) {
+                    System.out.println("------------------------------2");
                     cart.put(selectedProduct, cart.get(selectedProduct) + 1);
+                    System.out.println(cart.get(selectedProduct));
                     // 없으면 그냥 한 개 담아주기
                 } else {
                     cart.put(selectedProduct, 1);
@@ -161,9 +165,6 @@ public class CommerceSystem {
                 System.out.println("올바른 번호를 입력하세요");
                 continue;
             }
-
-            // 장바구니 선택하면 출력
-            System.out.println();
 
         }
     }
